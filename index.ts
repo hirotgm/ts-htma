@@ -30,6 +30,14 @@ export const Htma = {
             $(element).removeAttr('w-text');
         });
 
+        // Replace HTML content using w-html
+        $('*[w-html]').each((_, element) => {
+            const key = $(element).attr('w-html') as string;
+            const value = getValue(data, key);
+            $(element).html(value);
+            $(element).removeAttr('w-html');
+        });
+
         // Add new attribute using w-attr-name and w-attr-text
         $('*[w-attr-name]').each((_, element) => {
             const $el = $(element);

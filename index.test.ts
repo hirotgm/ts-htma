@@ -4,6 +4,9 @@ describe("Htma.compile", () => {
     it("空の文字列を渡すと空の文字列を返す", () => {
         expect(Htma.compile('')).toBe('');
     });
+    it("w-html属性で要素のHTMLを置換できる", () => {
+        expect(Htma.compile('<div class="test" w-html="bar">foo</div>', { bar: '<p>OK</p>' })).toBe('<div class="test"><p>OK</p></div>');
+    });
     it("w-text属性で要素のテキストを置換できる", () => {
         expect(Htma.compile('<div class="test" w-text="bar">foo</div>', { bar: 'baz' })).toBe('<div class="test">baz</div>');
     });
